@@ -1,0 +1,12 @@
+image: python:3.8
+
+pipelines:
+  default:
+    - step:
+        name: Run Tests
+        script:
+          - python -m venv .venv
+          - source .venv/bin/activate # For Unix-based systems
+          - pip install --upgrade pip
+          - pip install -r requirements.txt
+          - python src/tests/entry_point.py
